@@ -24,6 +24,7 @@ if ($db->connect()) {
   else  
     echo "Erro na criação das tabelas.\n";
 
+
 }
 
 exit;
