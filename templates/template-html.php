@@ -18,6 +18,7 @@ function html($content, $root_relative_path='../') {
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
         <a class="navbar-brand" href="<?php echo $root_relative_path . 'index.php'; ?>">Vendas</a>
         <button class="navbar-toggler" 
             type="button" data-toggle="collapse" data-target="#navbarText" 
@@ -35,11 +36,17 @@ function html($content, $root_relative_path='../') {
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo $root_relative_path . 'produtos'; ?>">Produtos </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo $root_relative_path . 'vendedores'; ?>">Vendedores </a>
+                </li>
             </ul>
             <span class="navbar-text">
             </span>
         </div>
-    </nav>  
+      </nav>
+
+    </div><!-- fim container -->
+ 
 
 
     <?php echo $content; ?>

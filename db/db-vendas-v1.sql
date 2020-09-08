@@ -2,9 +2,19 @@ DROP TABLE IF EXISTS `produto_departamento`;
 DROP TABLE IF EXISTS `produtos`;
 DROP TABLE IF EXISTS `departamentos`;
 DROP TABLE IF EXISTS `marcas`;
+DROP TABLE IF EXISTS `vendedores`;
 CREATE TABLE `departamentos` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+CREATE TABLE `vendedores` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `cpf` varchar(15) NOT NULL,
+  `matricula` int NOT NULL,
+  `salario` double NOT NULL,
+  `datanascimento` varchar(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 CREATE TABLE `marcas` (

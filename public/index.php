@@ -9,6 +9,8 @@ require_once(__DIR__ . '/../model/Marca.php');
 require_once(__DIR__ . '/../dao/DaoMarca.php');
 require_once(__DIR__ . '/../model/Produto.php');
 require_once(__DIR__ . '/../dao/DaoProduto.php');
+require_once(__DIR__ . '/../model/Vendedor.php');
+require_once(__DIR__ . '/../dao/DaoVendedor.php');
 
 $conn = Db::getInstance();
 
@@ -19,10 +21,12 @@ if (! $conn->connect()) {
 $daoMarca = new DaoMarca($conn);
 $daoProduto = new DaoProduto($conn);
 $daoDepartamento = new DaoDepartamento($conn);
+$daoVendedor = new DaoVendedor($conn);
 
 $marcas = $daoMarca->todos();
 $departamentos = $daoDepartamento->todos();
 $produtos = $daoProduto->todos();
+$vendedores = $daoVendedor->todos();
 
 
 ob_start();
@@ -35,7 +39,7 @@ ob_start();
   <div class="row">
 
     <!-- Departamentos -->
-    <div class="col-md-4" >
+    <div class="col-xl-3 col-md-4" >
       <h3>Departamentos</h3>
       <?php 
         if (count($departamentos) >0) {
@@ -50,7 +54,7 @@ ob_start();
     </div>
 
     <!-- Marcas -->
-    <div class="col-md-4" >
+    <div class="col-xl-2 col-md-4" >
       <h3>Marcas</h3>
       <?php 
         if (count($marcas) >0) {
@@ -66,7 +70,7 @@ ob_start();
 
 
     <!-- Produtos -->
-    <div class="col-md-4" >
+    <div class="col-xl-4 col-md-4" >
       <h3>Produtos</h3>
       <?php 
         if (count($produtos) >0) {
@@ -80,6 +84,21 @@ ob_start();
         }
         else
           echo "<h4>Nenhum produto cadastrado</h4>";
+      ?>
+    </div>
+
+    <!-- Vendedores -->
+    <div class="col-xl-3 col-md-4" >
+      <h3>Vendedores</h3>
+      <?php 
+        if (count($vendedores) >0) {
+          echo "<ul>";
+          foreach($vendedores as $v) 
+            echo "<li>[" . $v->getId() . "] - " . $v->getNome() . "</li>";
+          echo "</ul>";
+        }
+        else
+          echo "<h4>Nenhum vendedor cadastrada</h4>";
       ?>
     </div>
 
